@@ -1,0 +1,112 @@
+﻿1.create database ongeza_test with the tables below:
+table name=customer
+id int primary key auto_increment
+first_name varchar 25
+last_name varchar 25
+town_name varchar 25
+gender_id int
+is_deleted int not null default 0
+table= gender
+id int primary key auto_increment
+gender_name varchar 25
+
+2. Implement CRUD (create,read,update,delete) on table customer 
+For the read view,the columns to display are customer.id,customer.first_name,customer.last_name,customer.town_name,
+Gender.gender_name
+
+3.add data in gender table and have data from gender table as dropdown data for field gender in customer registration form
+
+4.implement  form validation in the create process using javascript & html
+such that 
+-the first name must be at least 3 characters - use javascript
+-all fields must filled - you can use html or javascript
+
+
+5.You are strictly required to use core php for the server side work
+
+
+6.implementation of  object oriented programming will be a plus (classes,functions etc..)
+
+
+7.upload your code,database dump file,readme file (explaining how to test it ) on your github profile 
+
+8.send the link to the repository on github to james.simiyu@ongeza.com by Thursday 2020-03-19 23:59
+
+
+
+
+
+
+
+
+<?php require_once 'header.php' ?>
+
+<main>
+<div class="container">
+<a class="btn btn-primary btn-sm" href="index.php?action=gender_add">Add Gender</a>
+<a class="btn btn-primary btn-sm" href="index.php?action=customer_add">Add Customer</a>
+
+
+<h3 class="text-center">Customers</h3>
+
+<br>
+<table class='table table-hover'>
+    <thead> 
+        <tr>
+            <th> <b>Customer ID</b></th>
+            <th> <b>First name</b></th>
+            <th> <b>Last name</b></th>
+            <th> <b>Town</b></th>
+            <th> <b>Gender</b></th>
+            <th> <b>Edit</b></th>
+            <th> <b>Delete</b></th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php
+    if(!empty($result))
+    {
+        foreach($result as $key => $value){
+    ?>
+    <tr>
+    <td><?php echo $result[$key]['id'] ?></td>
+    <td><?php echo $result[$key]['first_name'] ?></td>
+    <td><?php echo $result[$key]['last_name'] ?></td>
+    <td><?php echo $result[$key]['town_name'] ?></td>
+    <td><?php echo $result[$key]['gender_name'] ?></td>
+    <td><a class="btn btn-success btn-sm" href="index.php?action=customer_edit&id=<?php echo $result[$key]['id'];?>">Edit</a></td>
+    <td><a class="btn btn-danger btn-sm"  href="index.php?action=customer_delete&id=<?php echo $result[$key]['id'];?>">Delete</a></td>
+    </tr>
+    <?php
+        }
+    } else {
+        ?>
+            <tr>
+                <th class="text-center" colspan="5">No customer yet, Click on Add customet to Add Custmers</th>
+            </tr>
+      <?php
+    }
+    ?>
+    </tbody>
+</table>
+
+</div>
+
+</main>
+
+<script>
+
+
+let input = document.getElementById('first_name');
+
+name.addEventListener('keyup', () => {
+    if (input.value.length < 3) {
+        input.value = name.value.slice(0, 10);
+    }
+})
+
+</script>
+
+
+
+
