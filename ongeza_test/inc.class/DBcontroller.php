@@ -3,7 +3,7 @@
 class DBcontroller{
     private $serverName = "localhost";
     private $hostName = "root";
-    private $password = "Gracemkanusu9591";
+    private $password = "";
     private $dbName = "ongeza_test";
     private $conn;
 
