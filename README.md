@@ -20,3 +20,6 @@ To test this code
 8.There you go
 
 9.Thanks
+
+NB: In file C:\xampp\htdocs\ongeza_test\inc.class\DBcontroller.php make sure to set the database password to correspond with your own DBpassword.
+If there no password then, set => private $password = ""; on line 6 in C:\xampp\htdocs\ongeza_test\inc.class\DBcontroller.php
